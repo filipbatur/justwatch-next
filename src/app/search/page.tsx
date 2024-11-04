@@ -26,7 +26,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <ContentLayout>
-      <div className='mt-[70px]'>
+      <div className='mt-[70px]-md:mt-[110px]'>
         <h1 className='text-[24px] font-bold mb-6'>
           Search Results for: {searchQuery}
         </h1>
