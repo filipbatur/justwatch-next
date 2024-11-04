@@ -58,7 +58,7 @@ export const Search = ({ mobileSearch, ...props }: SearchProps) => {
   const handleToggleOn = () => {
     toggleOn();
     if (document.activeElement !== inputRef.current) {
-      inputRef.current?.focus(); // Only focus if input is not already focused
+      inputRef.current?.focus();
     }
   };
 
@@ -83,7 +83,7 @@ export const Search = ({ mobileSearch, ...props }: SearchProps) => {
     }
 
     if ((event.key === 'Tab' || event.key === 'ArrowDown') && isToggleOn) {
-      event.preventDefault(); // Prevent default Tab behavior
+      event.preventDefault();
       const firstLink = modalRef.current?.querySelector(
         '.link-item'
       ) as HTMLElement;
