@@ -16,12 +16,11 @@ export const MovieListItem = ({ movie }: MovieListItemProps) => {
       <Link key={movie.id} href={`/movies/${movie.id}`}>
         <Image
           src={imageUrl(movie.poster_path, 'w185')}
-          width={0}
-          height={0}
+          width={176}
+          height={264}
           alt={`${movie.title} image`}
-          className='rounded-xl aspect-[2/3] bg-[#0a151f]'
-          sizes='100vw'
-          style={{ width: '176px', height: '100%', objectFit: 'cover' }}
+          className='rounded-xl aspect-[2/3] bg-[#0a151f] -md:min-w[80px] -md:w-[80px]'
+          style={{ objectFit: 'cover', minWidth: '80px' }}
         />
       </Link>
       <div className='flex flex-col gap-2 w-full max-w-[500px]'>
