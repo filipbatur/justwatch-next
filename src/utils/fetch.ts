@@ -31,6 +31,7 @@ export async function fetchData(
     const data = await response.json();
     return { data };
   } catch (error) {
-    return { data: undefined, error };
+    console.error(error);
+    throw new Error('Request failed');
   }
 }
