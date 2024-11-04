@@ -1,3 +1,4 @@
+import React, { useRef, useEffect } from 'react';
 import { imageUrl } from '@/utils/imageUrl';
 import { movieYear } from '@/utils/movieData';
 import Image from 'next/image';
@@ -27,22 +28,27 @@ export const SearchBox = ({
 }: SearchBoxProps) => {
   const router = useRouter();
 
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    linkRefs.current = linkRefs.current.slice(0, data?.length || 0);
+  }, [data]);
+
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLAnchorElement>,
     index: number
   ) => {
-    const links = document.querySelectorAll('.link-item');
-
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      const nextIndex = (index + 1) % links.length;
-      (links[nextIndex] as HTMLElement).focus();
+      const nextIndex = (index + 1) % linkRefs.current.length;
+      linkRefs.current[nextIndex]?.focus();
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      const prevIndex = (index - 1 + links.length) % links.length;
-      (links[prevIndex] as HTMLElement).focus();
+      const prevIndex =
+        (index - 1 + linkRefs.current.length) % linkRefs.current.length;
+      linkRefs.current[prevIndex]?.focus();
     }
 
     if (event.key === 'Escape') {
@@ -77,6 +83,9 @@ export const SearchBox = ({
       onClick={handleClick}
       tabIndex={0}
       onKeyDown={(event) => handleKeyDown(event, index)}
+      ref={(el) => {
+        linkRefs.current[index] = el;
+      }}
       role='link'
     >
       <Image
