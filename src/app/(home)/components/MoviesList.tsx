@@ -21,11 +21,11 @@ export default async function MoviesList({
 
   const movieInstance = (item: Movie, index: number) =>
     numbered ? (
-      <div className='flex items-end'>
+      <div className='flex items-end' key={item.id}>
         <span className='text-[180px] leading-[180px] text-[#222c38] font-black -mr-5'>
           {index + 1}
         </span>
-        <MovieCard movie={item} key={item.id} />
+        <MovieCard movie={item} />
       </div>
     ) : (
       <MovieCard movie={item} key={item.id} />
