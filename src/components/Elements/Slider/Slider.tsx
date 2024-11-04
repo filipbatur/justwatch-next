@@ -77,6 +77,7 @@ export const Slider = ({
           >
             {isDragged && (
               <div
+                key={`${props.key}-key`}
                 style={{
                   position: 'absolute',
                   top: '-28px',
@@ -93,6 +94,7 @@ export const Slider = ({
               </div>
             )}
             <div
+              key={props.key}
               style={{
                 height: '12px',
                 width: '12px',
