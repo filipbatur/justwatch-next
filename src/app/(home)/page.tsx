@@ -3,7 +3,7 @@ import MoviesList from '@/app/(home)/components/MoviesList';
 import TrendingMovies from './components/TrendingMovies';
 import TopLists from './components/TopLists';
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <div className='flex flex-col pt-[80px] -md:pt-[110px]'>
       <TrendingMovies endpoint='trending/movie/day?language=en-US' />

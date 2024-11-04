@@ -9,7 +9,7 @@ interface MoviePageParams {
   params: { locale: string; id: string };
 }
 
-export default async function Movies({ params }: MoviePageParams) {
+export default async function MoviesPage({ params }: MoviePageParams) {
   const { data } = await fetchData(`movie/${params.id}`, {
     append_to_response: 'credits'
   });
