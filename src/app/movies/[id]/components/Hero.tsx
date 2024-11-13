@@ -12,14 +12,14 @@ interface HeroProps {
 export const Hero = ({ movie }: HeroProps) => {
   return (
     <div className='w-full flex justify-end bg-[#0c131e]'>
-      <div className='w-full max-w-[720px] h-[250px] relative'>
+      <div className='w-full max-w-[50%] h-[250px] relative'>
         <Image
           src={imageUrl(movie.backdrop_path, 'w1280')}
           alt='Cover Image'
           className='object-cover'
           fill
         />
-        <div className='absolute inset-0 w-full max-w-[720px] h-[250px] bg-backdrop-gradient'></div>
+        <div className='absolute inset-0 w-full max-w-[50%] h-[250px] bg-backdrop-gradient'></div>
       </div>
 
       <div className='w-full absolute left-0'>
